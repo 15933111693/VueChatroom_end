@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+  <script>
+    const socket = io('ws://localhost:3000', {
+      auth: {
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudCI6ImExNTIwMjMzMDA2IiwiaWQiOiIwZmQ5ODM2Ny0yNzAxLTQ4NzYtOWI3MC1lNGI0Y2MyM2VmNmUiLCJpYXQiOjE2NTE0MTQyMjAsImV4cCI6MTY1NDAwNjIyMH0.IIfC3LFjpdAb-AkWXfnqvydHnoXeKE5ZsyoW-8Sx08A"
+      }
+    })
+    const id = Math.random() * 100 >> 0
+    document.write(id)
+    socket.on('connect', async (io) => {
+      console.log("连接成功")
+      await socket.emit('joinRoom')
+      await socket.emit('sendMsg', `i am ${id}`)
+      // await socket.disconnect()
+    })
+    socket.on("sendMsg", (msg) => {
+      console.log(msg)
+    })
+  </script>
+</body>
+</html>
