@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     avatar: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'http://192.168.43.101:3000/images/default.jpg'
+      defaultValue: 'http://localhost:3000/images/default.jpg'
     }
   }, {
     sequelize,

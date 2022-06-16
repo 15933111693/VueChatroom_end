@@ -30,7 +30,7 @@ onerror(app)
 app.use(
   cors({
       origin: function(ctx) { //设置允许来自指定域名请求
-          return 'http://192.168.43.101:8080'; //只允许http://localhost:8080这个域名的请求
+          return 'http://localhost:8080'; //只允许http://localhost:8080这个域名的请求
       },
       maxAge: 5, //指定本次预检请求的有效期，单位为秒。
       credentials: true, //是否允许发送Cookie

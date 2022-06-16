@@ -9,7 +9,7 @@ module.exports = (httpServer, app) => {
   const { chatroom, user } = app.context.service
   const io = new Server(httpServer, {
     cors: {
-      origin: "http://192.168.43.101:8080",
+      origin: "http://localhost:8080",
       methods: ["GET", "POST"],
       credentials: true
     }
